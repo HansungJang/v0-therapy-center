@@ -63,7 +63,6 @@ export default function AdminLoginPage() {
               {isLoading ? "로그인 중..." : "로그인"}
             </Button>
 
-            <p className="text-xs text-muted-foreground text-center">기본 비밀번호: admin123</p>
           </form>
         </CardContent>
       </Card>

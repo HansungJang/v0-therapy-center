@@ -63,7 +63,7 @@ export default function AboutPage() {
                     src={
                       therapist.name === "김지은"
                         ? "/professional-korean-female-therapist.jpg"
-                        : "/professional-korean-male-therapist.jpg"
+                        : "https://github.com/HansungJang/v0-therapy-center/blob/main/jang.jpg?raw=true"
                     }
                     alt={therapist.name}
                     fill

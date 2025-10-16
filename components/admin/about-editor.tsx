@@ -36,7 +36,7 @@ export function AboutEditor() {
         title: "",
         credentials: [""],
         bio: "",
-        image: "/placeholder.svg?key=n6qmi",
+        image: "", // Changed to empty string for URL
         specialties: [""],
       }
       setContent({
@@ -68,19 +68,6 @@ export function AboutEditor() {
         therapists: content.therapists.map((t) => (t.id === id ? { ...t, [field]: value } : t)),
       })
     }
-  }
-
-  const handleImageUpload = (therapistId: string, file: File) => {
-    const reader = new FileReader()
-    reader.onloadend = () => {
-      const base64String = reader.result as string
-      updateTherapist(therapistId, "image", base64String)
-      toast({
-        title: "이미지 업로드 완료",
-        description: "이미지가 성공적으로 업로드되었습니다.",
-      })
-    }
-    reader.readAsDataURL(file)
   }
 
   const addCredential = (therapistId: string) => {
@@ -221,6 +208,16 @@ export function AboutEditor() {
 
                 <div className="pr-20">
                   <h4 className="font-semibold text-lg mb-4">{therapist.name || "새 상담사"}</h4>
+                </div>
+                
+                {/* Image URL Input */}
+                <div className="space-y-2">
+                  <Label>이미지 URL</Label>
+                  <Input
+                    value={therapist.image}
+                    onChange={(e) => updateTherapist(therapist.id, "image", e.target.value)}
+                    placeholder="https://example.com/image.jpg"
+                  />
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">

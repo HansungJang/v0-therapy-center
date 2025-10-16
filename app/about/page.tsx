@@ -59,16 +59,12 @@ export default function AboutPage() {
             {content.therapists.map((therapist) => (
               <Card key={therapist.id} className="overflow-hidden">
                 <div className="aspect-[4/3] relative bg-muted">
-                  <Image
-                    src={
-                      therapist.name === "김지은"
-                        ? "/professional-korean-female-therapist.jpg"
-                        : "https://github.com/HansungJang/v0-therapy-center/blob/main/jang.jpg?raw=true"
-                    }
+                    <Image
+                    src={therapist.image || "/placeholder.svg"}
                     alt={therapist.name}
                     fill
                     className="object-cover"
-                  />
+                    />
                 </div>
                 <CardContent className="p-6">
                   <h3 className="font-serif text-2xl font-bold mb-1">{therapist.name}</h3>
